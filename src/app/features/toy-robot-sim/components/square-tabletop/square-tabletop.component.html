@@ -1,0 +1,8 @@
+<div class="board">
+    <div class="single-row" *ngFor="let row of table; let i = index; let c = count;">
+        <div class="pe-2">{{c-1-i}}</div>
+        <div class="single-cel" *ngFor="let col of row; let x = index">
+            <robot *ngIf="currentY==i && currentX == x"></robot>
+        </div>
+    </div>
+</div>

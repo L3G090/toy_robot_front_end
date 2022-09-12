@@ -1,0 +1,22 @@
+.board {
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.single-row {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+}
+.single-cel{
+    box-sizing: border-box;
+    border: 1px solid rgb(85, 85, 85);
+    background-color: rgb(203, 203, 203);
+    display: flex;
+    width: 64px;
+    height: 64px;
+    justify-content: center;
+    align-items: center;
+}
