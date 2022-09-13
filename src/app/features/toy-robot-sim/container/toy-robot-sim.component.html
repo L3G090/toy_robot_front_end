@@ -1,4 +1,14 @@
-<div class="container text-center">
-    <h2 class="mt-2">TOY ROBOT SIMULATOR</h2>
-    <square-tabletop></square-tabletop>
+<div class="container">
+    <h2 class="mt-2 text-center">Toy Robot Simulator</h2>
+    <div class="row">
+        <div class="col-lg-5 col-md-12 col-sm-12">
+            <command-input (commandSend)="validateCommand($event)" (resetFn)="reset()"></command-input>
+            <console></console>
+        </div>
+        <div class="col-lg-5 col-md-12 col-sm-12 offset-lg-1">
+            <square-tabletop></square-tabletop>
+        </div>
+        
+        
+    </div>
 </div>

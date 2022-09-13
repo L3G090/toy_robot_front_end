@@ -1,8 +1,13 @@
-<div class="board">
+<div class="board mt-3">
     <div class="single-row" *ngFor="let row of table; let i = index; let c = count;">
-        <div class="pe-2">{{c-1-i}}</div>
+        <div class="pe-2 d-flex align-items-center">{{c-1-i}}</div>
         <div class="single-cel" *ngFor="let col of row; let x = index">
-            <robot *ngIf="currentY==i && currentX == x"></robot>
+            <robot *ngIf="currentY==i && currentX == x" [facing]="orientation"></robot>
+        </div>
+    </div>
+    <div class="d-flex ps-3">
+        <div class="bottom-legend" *ngFor="let row of table; let i = index;">
+            <span>{{i}}</span>
         </div>
     </div>
 </div>

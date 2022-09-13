@@ -4,6 +4,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    min-width: 100px*5;
 }
 .single-row {
     box-sizing: border-box;
@@ -15,8 +16,15 @@
     border: 1px solid rgb(85, 85, 85);
     background-color: rgb(203, 203, 203);
     display: flex;
-    width: 64px;
-    height: 64px;
+    width: 100px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottom-legend {
+    display: flex;
+    width: 100px;
     justify-content: center;
     align-items: center;
 }

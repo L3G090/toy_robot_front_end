@@ -1,0 +1,6 @@
+<label for="command-input" class="form-label mt-3">Let's play</label>
+<div class="input-group mb-3">
+    <input id="command-input" (input)="command.value = command.value.toUpperCase()" (keyup.enter)="run(command)" #command type="text" class="form-control" placeholder="Insert a command" aria-label="Command">
+    <button class="btn btn-primary" (click)="run(command)" type="button">Run</button>
+    <button class="btn btn-outline-secondary" (click)="reset()" type="button">Reset</button>
+</div>
