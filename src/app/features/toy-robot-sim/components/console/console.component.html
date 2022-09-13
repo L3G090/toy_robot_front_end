@@ -1,5 +1,5 @@
-<div class="text-left console pb-2">
+<div *ngIf="list.length > 0" class="text-left console pb-2">
     <div *ngFor="let message of list.reverse()">
-        > {{message}}
+        > <span class="message">{{message | uppercase}}</span>
     </div>
 </div>

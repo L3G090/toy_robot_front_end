@@ -19,19 +19,20 @@ export class ToyRobotSimService {
         var str = command.split(' ')[0];
         switch (str) {
             case COMMAND.LEFT:
-                this.squareTabletopService.rotate(COMMAND.LEFT);
+                this.consoleService.addMessage(this.squareTabletopService.rotate(COMMAND.LEFT));
                 break;
             case COMMAND.RIGHT:
-                this.squareTabletopService.rotate(COMMAND.RIGHT);
+                this.consoleService.addMessage(this.squareTabletopService.rotate(COMMAND.RIGHT));
                 break;
             case COMMAND.MOVE:
-                this.squareTabletopService.move();
+                this.consoleService.addMessage(this.squareTabletopService.move());
                 break;
             case COMMAND.PLACE:
                 if (this.placeRegExp.test(command)) {
                     var param = this.placeRegExp.exec(command)
                     if (param) {
                         this.squareTabletopService.setRobotInfo(parseInt(param[1]), MAX_LENGHT - 1 - parseInt(param[2]), param[3])
+                        this.consoleService.addMessage(param[0]);
                     }
                 } else {
                     this.consoleService.addMessage('invalid command');

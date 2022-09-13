@@ -19,11 +19,15 @@ export class SquareTabletopComponent implements OnInit {
 
     }
 
+    getBackgroundColor(y: number, x: number) {
+        return (y + x) % 2 === 1 ? {backgroundColor: '#8ab7f5'} : {backgroundColor: '#a3e3af'}
+    }
+
     ngOnInit(): void {
         this.squareTabletobService.getRobotInfo()
             .subscribe({
                 next: (data) => {
-                    if(data) {
+                    if (data) {
                         this.currentX = data.x;
                         this.currentY = data.y;
                         this.orientation = data.f;
