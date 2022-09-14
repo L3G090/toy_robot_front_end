@@ -26,9 +26,15 @@ export class SquareTabletopComponent implements OnInit {
     ngOnInit(): void {
         this.squareTabletobService.getRobotInfo()
             .subscribe((data) => {
-                    this.currentX = data?.x || null;
-                    this.currentY = data?.y || null;
-                    this.orientation = data?.f || null;
+                if (data) {
+                    this.currentX = data.x;
+                    this.currentY = data.y;
+                    this.orientation = data.f;
+                } else {
+                    this.currentX = null;
+                    this.currentY = null;
+                    this.orientation = null;
+                }
             })
     }
 }
