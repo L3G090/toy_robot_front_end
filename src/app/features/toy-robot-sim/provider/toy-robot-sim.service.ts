@@ -16,8 +16,12 @@ export class ToyRobotSimService {
     ) { }
 
     validate(command: string) {
-        var str = command.split(' ')[0];
-        switch (str) {
+        var str = command.split(' ');
+        if(str.length > 1 && str[0] != COMMAND.PLACE) {
+            this.consoleService.addMessage('invalid command');
+            return;
+        }
+        switch (str[0]) {
             case COMMAND.LEFT:
                 this.consoleService.addMessage(this.squareTabletopService.rotate(COMMAND.LEFT));
                 break;

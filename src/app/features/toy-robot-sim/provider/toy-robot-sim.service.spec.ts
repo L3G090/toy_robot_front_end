@@ -32,10 +32,16 @@ describe('ToyRobotSimService', () => {
     });
 
     describe('Validate function', () => {
-        it('command not valid', () => {
+        it('command not valid 1', () => {
             const consoleServiceStub: ConsoleService = TestBed.inject(ConsoleService);
             spyOn(consoleServiceStub, 'addMessage').and.callThrough();
             service.validate('ERROR');
+            expect(consoleServiceStub.addMessage).toHaveBeenCalledWith('invalid command')
+        });
+        it('command not valid 2', () => {
+            const consoleServiceStub: ConsoleService = TestBed.inject(ConsoleService);
+            spyOn(consoleServiceStub, 'addMessage').and.callThrough();
+            service.validate('RIGHT XXXX');
             expect(consoleServiceStub.addMessage).toHaveBeenCalledWith('invalid command')
         });
         it('LEFT command', () => {

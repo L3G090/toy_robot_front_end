@@ -2,7 +2,7 @@ import { Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'robot',
-  templateUrl: './robot.component.html',
+  template: `<img [src]="url" width="80" [ngClass]="facing+'-direction'"/>`,
   styleUrls: ['./robot.component.scss']
 })
 export class RobotComponent{
