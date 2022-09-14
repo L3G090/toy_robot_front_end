@@ -1,20 +1,19 @@
-.NORTH-direction{
+.SOUTH-direction {
     transform: rotate(180deg);
 }
 
-.SOUTH-direction{
+.NORTH-direction {
     transform: rotate(0deg);
 }
 
-.EAST-direction{
+.EAST-direction {
+    transform: rotate(90deg);
+}
+
+.WEST-direction {
     transform: rotate(-90deg);
 }
 
-.WEST-direction{
-    transform: rotate(90deg);   
-}
-
 .direction {
-    //transition: 2s;
-    transition: all 1s;
+    transition: 0.1s;
 }

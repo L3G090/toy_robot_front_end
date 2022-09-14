@@ -15,10 +15,6 @@ export class ConsoleComponent implements OnInit {
 
     ngOnInit() {
         this.consoleService.getListMessage()
-            .subscribe({
-                next: (data: string[]) => {
-                    if(data){this.list = data;}
-                }
-            })
+            .subscribe((data: string[]) => this.list = data)
     }
 }

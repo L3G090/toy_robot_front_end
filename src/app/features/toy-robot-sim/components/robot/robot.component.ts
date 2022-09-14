@@ -6,6 +6,6 @@ import { Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./robot.component.scss']
 })
 export class RobotComponent{
-  url = './assets/images/robot.png'
+  url = './assets/images/space-suit-robot-top-down.png'
   @Input() facing: string | null = "NORTH";
 }

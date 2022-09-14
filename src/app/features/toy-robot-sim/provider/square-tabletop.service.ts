@@ -35,7 +35,7 @@ export class SquareTabletopService {
     move() {
         if (!this.robotInfo) return 'invalid command';
         switch (this.robotInfo.f) {
-            case DIRECTION.NORTH || DIRECTION.SOUTH:
+            case DIRECTION.NORTH:
                 if (this.robotInfo.y - 1 >= 0) {
                     this.robotInfo.y -= 1;
                 } else {

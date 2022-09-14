@@ -8,7 +8,7 @@ import { SquareTabletopService } from "./square-tabletop.service";
 })
 
 export class ToyRobotSimService {
-    placeRegExp = new RegExp(/^PLACE\s+([0-4]),([0-4]),(NORTH|SOUTH|EAST|WEST)$/i);
+    placeRegExp = new RegExp(/^PLACE\s+([0-4])(,|\s)+([0-4])(,|\s)+(NORTH|SOUTH|EAST|WEST)$/i);
 
     constructor(
         private squareTabletopService: SquareTabletopService,
@@ -31,8 +31,8 @@ export class ToyRobotSimService {
                 if (this.placeRegExp.test(command)) {
                     var param = this.placeRegExp.exec(command)
                     if (param) {
-                        this.squareTabletopService.setRobotInfo(parseInt(param[1]), MAX_LENGHT - 1 - parseInt(param[2]), param[3])
-                        this.consoleService.addMessage(param[0]);
+                        this.squareTabletopService.setRobotInfo(parseInt(param[1]), MAX_LENGHT - 1 - parseInt(param[3]), param[5])
+                        this.consoleService.addMessage(COMMAND.PLACE + ' ' + param[1] + ',' + param[3] + ',' + param[5]);
                     }
                 } else {
                     this.consoleService.addMessage('invalid command');
