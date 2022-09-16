@@ -17,7 +17,7 @@ export class ToyRobotSimService {
 
     validate(command: string) {
         var str = command.split(' ');
-        if(str.length > 1 && str[0] != COMMAND.PLACE) {
+        if (str.length > 1 && str[0] != COMMAND.PLACE) {
             this.consoleService.addMessage('invalid command');
             return;
         }
@@ -35,7 +35,7 @@ export class ToyRobotSimService {
                 if (this.placeRegExp.test(command)) {
                     var param = this.placeRegExp.exec(command)
                     if (param) {
-                        this.squareTabletopService.setRobotInfo(parseInt(param[1]), MAX_LENGHT - 1 - parseInt(param[3]), param[5])
+                        this.squareTabletopService.setRobotInfo({ x: parseInt(param[1]), y: MAX_LENGHT - 1 - parseInt(param[3]), f: param[5] })
                         this.consoleService.addMessage(COMMAND.PLACE + ' ' + param[1] + ',' + param[3] + ',' + param[5]);
                     }
                 } else {

@@ -7,5 +7,5 @@ import { Component, Input, OnInit} from '@angular/core';
 })
 export class RobotComponent{
   url = './assets/images/space-suit-robot-top-down.png'
-  @Input() facing: string | null = "NORTH";
+  @Input() facing: string | undefined = "NORTH";
 }

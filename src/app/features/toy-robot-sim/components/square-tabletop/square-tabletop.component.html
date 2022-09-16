@@ -2,7 +2,7 @@
     <div class="single-row" *ngFor="let row of table; let y = index; let c = count;">
         <div class="pe-2 d-flex align-items-center">{{c-1-y}}</div>
         <div class="single-cel" [ngStyle]="getBackgroundColor(y,x)" *ngFor="let col of row; let x = index">
-            <robot *ngIf="currentY==y && currentX == x" [facing]="orientation"></robot>
+            <robot *ngIf="robotInfo?.y == y && robotInfo?.x == x" [facing]="robotInfo?.f"></robot>
         </div>
     </div>
     <div class="d-flex ps-3">

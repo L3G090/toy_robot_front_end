@@ -86,7 +86,7 @@ describe('ToyRobotSimService', () => {
             spyOn(squareTabletopServiceStub, 'setRobotInfo').and.callThrough();
             service.validate('PLACE 3,4,NORTH');
             expect(consoleServiceStub.addMessage).toHaveBeenCalledWith('PLACE 3,4,NORTH')
-            expect(squareTabletopServiceStub.setRobotInfo).toHaveBeenCalledWith(3,0,'NORTH');
+            expect(squareTabletopServiceStub.setRobotInfo).toHaveBeenCalledWith({x:3,y:0,f:'NORTH'});
 
         });
         it('PLACE command wrong', () => {
@@ -98,4 +98,3 @@ describe('ToyRobotSimService', () => {
         });
     });
 });
-

@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable } from "rxjs";
-import { COMMAND, DIRECTION, RobotInfoInterface } from "src/app/shared/model";
-import { MAX_LENGHT } from "../container/toy-robot-sim.component";
+import { BehaviorSubject } from "rxjs";
+import { COMMAND, DIRECTION, MAX_LENGHT, RobotInfoInterface } from "src/app/shared/model";
 
 
 @Injectable({
@@ -13,9 +12,9 @@ export class SquareTabletopService {
     private robotInfo$ = new BehaviorSubject<RobotInfoInterface | null>(null)
     robotInfo: RobotInfoInterface | null = null;
 
-    setRobotInfo(xCoord: number, yCoord: number, facing: string) {
-        this.robotInfo = { x: xCoord, y: yCoord, f: facing };
-        this.robotInfo$.next({ x: xCoord, y: yCoord, f: facing })
+    setRobotInfo(robotInfoParam: RobotInfoInterface) {
+        this.robotInfo = robotInfoParam;
+        this.robotInfo$.next(robotInfoParam)
     }
 
     reset() {
@@ -64,7 +63,7 @@ export class SquareTabletopService {
                 }
                 break;
         }
-        this.setRobotInfo(this.robotInfo.x, this.robotInfo.y, this.robotInfo.f);
+        this.setRobotInfo(this.robotInfo);
         return COMMAND.MOVE;
     }
 
@@ -101,7 +100,7 @@ export class SquareTabletopService {
                     break;
             }
         }
-        this.setRobotInfo(this.robotInfo.x, this.robotInfo.y, this.robotInfo.f);
+        this.setRobotInfo(this.robotInfo);
         return rotation;
     }
 

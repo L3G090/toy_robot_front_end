@@ -45,5 +45,4 @@ describe('ConsoleComponent', () => {
         expect(component.list).toEqual(expectedArray)
     });
 
-
 });

@@ -8,33 +8,21 @@ import { SquareTabletopService } from '../../provider/square-tabletop.service';
     styleUrls: ['./square-tabletop.component.scss']
 })
 export class SquareTabletopComponent implements OnInit {
-    currentX: number | null = null;
-    currentY: number | null = null;
-    orientation: string | null = '';
+    robotInfo: RobotInfoInterface | null = null;
     table = new Array(MAX_LENGHT).fill(new Array(MAX_LENGHT));
 
     constructor(
         private squareTabletobService: SquareTabletopService
-    ) {
-
-    }
+    ) { }
 
     getBackgroundColor(y: number, x: number) {
-        return (y + x) % 2 === 1 ? { backgroundColor: '#8ab7f5' } : { backgroundColor: '#a3e3af' }
+        return (y + x) % 2 === 1 ? { backgroundColor: '#bbb6ad' } : { backgroundColor: '#dbcdb7' }
     }
 
     ngOnInit(): void {
         this.squareTabletobService.getRobotInfo()
             .subscribe((data) => {
-                if (data) {
-                    this.currentX = data.x;
-                    this.currentY = data.y;
-                    this.orientation = data.f;
-                } else {
-                    this.currentX = null;
-                    this.currentY = null;
-                    this.orientation = null;
-                }
+                this.robotInfo = data;
             })
     }
 }

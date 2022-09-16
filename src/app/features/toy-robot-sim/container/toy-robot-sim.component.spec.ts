@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
-import { of } from 'rxjs';
 import { ToyRobotSimContainerComponent } from './toy-robot-sim.component';
 import { ToyRobotSimService } from '../provider/toy-robot-sim.service';
 import { ConsoleService } from '../provider/console.service';

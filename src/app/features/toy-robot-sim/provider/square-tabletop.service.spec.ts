@@ -22,7 +22,7 @@ describe('SquareTabletopService', () => {
 
     it('should add robot info / should get robot info', () => {
         let expectObj: RobotInfoInterface = { x: 3, y: 4, f: 'NORTH' };
-        service.setRobotInfo(3, 4, 'NORTH');
+        service.setRobotInfo({x:3, y:4, f:'NORTH'});
         expect(service.robotInfo).toEqual(expectObj);
         var returnValue = service.getRobotInfo();
         returnValue.subscribe((data: RobotInfoInterface | null) => {
@@ -38,7 +38,7 @@ describe('SquareTabletopService', () => {
     });
 
     it('should get report', () => {
-        service.setRobotInfo(3, 4, 'NORTH');
+        service.setRobotInfo({x:3, y:4, f:'NORTH'});
         var resultValue = service.getReport();
         expect(resultValue).toBe('OUTPUT: 3,0,NORTH')
         service.reset();
@@ -52,46 +52,46 @@ describe('SquareTabletopService', () => {
             expect(resultValue).toBe('invalid command')            
         });
         it('robot faced to nord not at the edge', () => {
-            service.setRobotInfo(3, 4, 'NORTH');
+            service.setRobotInfo({x:3, y:4, f:'NORTH'});
             var resultValue = service.move();
             expect(service.robotInfo?.y).toBe(3)
             expect(resultValue).toBe('MOVE')            
         });
         it('robot faced to nord at the edge', () => {
-            service.setRobotInfo(3, 0, 'NORTH');
+            service.setRobotInfo({x:3, y:0, f:'NORTH'});
             var resultValue = service.move();
             expect(resultValue).toBe('invalid command')            
         });
         it('robot faced to south not at the edge', () => {
-            service.setRobotInfo(1, 1, 'SOUTH');
+            service.setRobotInfo({x:1, y:1, f:'SOUTH'});
             var resultValue = service.move();
             expect(service.robotInfo?.y).toBe(2)
             expect(resultValue).toBe('MOVE')            
         });
         it('robot faced to south at the edge', () => {
-            service.setRobotInfo(3, 4, 'SOUTH');
+            service.setRobotInfo({x:3, y:4, f:'SOUTH'});
             var resultValue = service.move();
             expect(resultValue).toBe('invalid command')            
         });
         it('robot faced to west not at the edge', () => {
-            service.setRobotInfo(3, 4, 'WEST');
+            service.setRobotInfo({x:3, y:4, f:'WEST'});
             var resultValue = service.move();
             expect(service.robotInfo?.x).toBe(2)
             expect(resultValue).toBe('MOVE')            
         });
         it('robot faced to west at the edge', () => {
-            service.setRobotInfo(0, 4, 'WEST');
+            service.setRobotInfo({x:0, y:4, f:'WEST'});
             var resultValue = service.move();
             expect(resultValue).toBe('invalid command')            
         });
         it('robot faced to east not at the edge', () => {
-            service.setRobotInfo(3, 4, 'EAST');
+            service.setRobotInfo({x:3, y:4, f:'EAST'});
             var resultValue = service.move();
             expect(service.robotInfo?.x).toBe(4)
             expect(resultValue).toBe('MOVE')            
         });
         it('robot faced to east at the edge', () => {
-            service.setRobotInfo(4, 4, 'EAST');
+            service.setRobotInfo({x:4, y:4, f:'EAST'});
             var resultValue = service.move();
             expect(resultValue).toBe('invalid command')            
         });
@@ -103,49 +103,49 @@ describe('SquareTabletopService', () => {
             expect(resultValue).toBe('invalid command')            
         });
         it('right rotation - robot faced to north', () => {
-            service.setRobotInfo(3, 4, 'NORTH');
+            service.setRobotInfo({x:3, y:4, f:'NORTH'});
             var resultValue = service.rotate('RIGHT');
             expect(service.robotInfo?.f).toBe('EAST')
             expect(resultValue).toBe('RIGHT')            
         });
         it('right rotation - robot faced to south', () => {
-            service.setRobotInfo(3, 4, 'SOUTH');
+            service.setRobotInfo({x:3, y:4, f:'SOUTH'});
             var resultValue = service.rotate('RIGHT');
             expect(service.robotInfo?.f).toBe('WEST')
             expect(resultValue).toBe('RIGHT')            
         });
         it('right rotation - robot faced to west', () => {
-            service.setRobotInfo(3, 4, 'WEST');
+            service.setRobotInfo({x:3, y:4, f:'WEST'});
             var resultValue = service.rotate('RIGHT');
             expect(service.robotInfo?.f).toBe('NORTH')
             expect(resultValue).toBe('RIGHT')            
         });
         it('right rotation - robot faced to east', () => {
-            service.setRobotInfo(3, 4, 'EAST');
+            service.setRobotInfo({x:3, y:4, f:'EAST'});
             var resultValue = service.rotate('RIGHT');
             expect(service.robotInfo?.f).toBe('SOUTH')
             expect(resultValue).toBe('RIGHT')            
         });
         it('left rotation - robot faced to north', () => {
-            service.setRobotInfo(3, 4, 'NORTH');
+            service.setRobotInfo({x:3, y:4, f:'NORTH'});
             var resultValue = service.rotate('LEFT');
             expect(service.robotInfo?.f).toBe('WEST')
             expect(resultValue).toBe('LEFT')            
         });
         it('left rotation - robot faced to south', () => {
-            service.setRobotInfo(3, 4, 'SOUTH');
+            service.setRobotInfo({x:3, y:4, f:'SOUTH'});
             var resultValue = service.rotate('LEFT');
             expect(service.robotInfo?.f).toBe('EAST')
             expect(resultValue).toBe('LEFT')            
         });
         it('left rotation - robot faced to west', () => {
-            service.setRobotInfo(3, 4, 'WEST');
+            service.setRobotInfo({x:3, y:4, f:'WEST'});
             var resultValue = service.rotate('LEFT');
             expect(service.robotInfo?.f).toBe('SOUTH')
             expect(resultValue).toBe('LEFT')            
         });
         it('left rotation - robot faced to east', () => {
-            service.setRobotInfo(3, 4, 'EAST');
+            service.setRobotInfo({x:3, y:4, f:'EAST'});
             var resultValue = service.rotate('LEFT');
             expect(service.robotInfo?.f).toBe('NORTH')
             expect(resultValue).toBe('LEFT')            

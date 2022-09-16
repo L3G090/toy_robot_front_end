@@ -1,5 +1,6 @@
 <div class="input-group mb-3">
-    <input id="command-input" (input)="command.value = command.value.toUpperCase()" (keyup.enter)="run(command)" #command type="text" class="form-control" placeholder="Insert a command" aria-label="Command" autofocus>
+    <input id="command-input" (input)="command.value = command.value.toUpperCase()" (keyup.enter)="run(command)"
+        #command type="text" class="form-control" placeholder="Insert a command" aria-label="Command" autofocus>
     <button class="btn btn-primary" (click)="run(command)" type="button">Run</button>
     <button class="btn btn-outline-secondary" (click)="reset()" type="button">Reset</button>
 </div>

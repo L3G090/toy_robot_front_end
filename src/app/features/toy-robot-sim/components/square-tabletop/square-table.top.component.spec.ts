@@ -60,9 +60,7 @@ describe('SquareTabletopComponent', () => {
         spyOn(squareTabletopServiceStub, 'getRobotInfo').and.callThrough();
         component.ngOnInit();
         expect(squareTabletopServiceStub.getRobotInfo).toHaveBeenCalled();
-        expect(component.currentX).toEqual(expectedObj.x)
-        expect(component.currentY).toEqual(expectedObj.y)
-        expect(component.orientation).toEqual(expectedObj.f)
+        expect(component.robotInfo).toEqual(expectedObj)
     });
 
     it('should not get robot info', () => {
@@ -72,8 +70,6 @@ describe('SquareTabletopComponent', () => {
         spyOn(squareTabletopServiceStub, 'getRobotInfo').and.returnValue(of(null));
         component.ngOnInit();
         expect(squareTabletopServiceStub.getRobotInfo).toHaveBeenCalled();
-        expect(component.currentX).toEqual(null)
-        expect(component.currentY).toEqual(null)
-        expect(component.orientation).toEqual(null)
+        expect(component.robotInfo).toEqual(null)
     });
 });
